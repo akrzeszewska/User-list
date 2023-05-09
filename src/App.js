@@ -60,13 +60,32 @@ function App() {
   const [users] = useState(USERS);
   const [searchPhrase, setSearchPhrase] = useState("");
 
-  const handleSearchPhraseChange = (searchPhraseInput) => {};
-
-  const getFilteredUsers = () => {
-    return users;
+  const handleSearchPhraseChange = () => {
+    setSearchPhrase();
   };
 
+
+  const getFilteredUsers = () => {
+ 
+    return users.filter((myUser) => {
+      if (myUser.name.includes(searchPhrase)) {
+        return true;
+      } 
+      if (myUser.lastName.includes(searchPhrase))  {
+        return true;
+      } 
+      if (myUser.address.city.includes(searchPhrase))  {
+        return true;
+      } 
+      if (myUser.address.country.includes(searchPhrase))  {
+        return true;
+      } 
+    });
+  };
+  
+
   const usersToDisplay = getFilteredUsers();
+  console.log(usersToDisplay)
 
   return (
     <div className="container">
@@ -74,6 +93,6 @@ function App() {
       <UsersList users={usersToDisplay} />
     </div>
   );
-}
+};
 
 export default App;

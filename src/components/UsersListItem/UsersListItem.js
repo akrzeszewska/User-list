@@ -6,8 +6,9 @@ export const UsersListItem = (props) => {
     <div className="users-list-item__container">
       <img width={100} src={user.img} alt="avatar" />
       <div>
-        <p>{user.name}</p>
-        <p>{user.address.country}</p>
+        <p>{user.name} {user.lastName}</p>
+        <p style={{display: 'inline'}}>{user.address.country}, </p>
+        <p style={{display: 'inline'}}>{user.address.city}</p>
       </div>
     </div>
   );
