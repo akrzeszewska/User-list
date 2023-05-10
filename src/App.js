@@ -60,8 +60,8 @@ function App() {
   const [users] = useState(USERS);
   const [searchPhrase, setSearchPhrase] = useState("");
 
-  const handleSearchPhraseChange = () => {
-    setSearchPhrase();
+  const handleSearchPhraseChange = (a) => {
+    setSearchPhrase(a);
   };
 
 
@@ -85,7 +85,8 @@ function App() {
   
 
   const usersToDisplay = getFilteredUsers();
-  console.log(usersToDisplay)
+  // console.log(usersToDisplay)
+  console.log(searchPhrase)
 
   return (
     <div className="container">
